@@ -13,12 +13,13 @@ rm(list=ls())
 # 3. Uses descriptive activity names to name the activities in the data set
 # 4. Appropriately labels the data set with descriptive variable names.
 # 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-
+ 
 # Before merging and manipulating the data, one has to download and unzip the contents. 
 
 # set working directory, check to make sure directory and zip file exist before downloading and unzipping.  
 # will delete before submission.
-setwd("C:/Users/Art/Documents/Coursera/Analytics/Data Clensing/Project")
+setwd("C:/Users/Art/Documents/Coursera/Analytics/Data Clensing/Project/github/getting-and-Cleaning-Data")
+getwd()
 
 if(!file.exists("./datadir")){dir.create("./datadir")}
 url <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
@@ -48,7 +49,7 @@ featuresTrainData<-read.table(file.path(rootdir, "train" , "X_train.txt" ),heade
 # Read Activity Labels
 activityLabels <- read.table(file.path(rootdir, "activity_labels.txt"),header = FALSE)
 names(activityLabels) <- c("Activity","Activity Name")
-names(activityLabels)
+#names(activityLabels)
 
 # Data is now read into tables, now combine tables
 activityData <- rbind(activityTrainData, activityTestData)
@@ -63,14 +64,12 @@ names(featuresData) <- featureNames$V2
 # OK.... Data is loaded into data frames and labels have been copied to names()
 # now we merge the columns!
 allData <- cbind(featuresData, cbind( subjectData, activityData ))
-head(allData$Activity)
-head(activityLabels$Activity)
 #rename V1 to Activity
 names(allData) <- sub("V1", "Activity", names(allData))
-dim(allData2)
+#dim(allData2)
 #Join activity data with activity names
 allData <- join(allData, activityLabels, by = "Activity", match = "first")
-names(allData)
+#names(allData)
 
 # allData df now contains the combined data 
 #Question 1 results completed
@@ -108,7 +107,7 @@ names(meanStdSensorData) <- sub("Freq", "Frequency", names(meanStdSensorData))
 names(meanStdSensorData) <- sub("Freq", "Frequency", names(meanStdSensorData))
 
 #Below lines used for testing :0)
-names(meanStdSensorData[,grepl("Fre", names(meanStdSensorData))])
+#names(meanStdSensorData[,grepl("Fre", names(meanStdSensorData))])
 #sub("Freq", "Frequency", names(meanStdSensorData))
 #names(meanStdSensorData)
 
