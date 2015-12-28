@@ -116,5 +116,5 @@ names(meanStdSensorData) <- sub("Freq", "Frequency", names(meanStdSensorData))
 
 averageByActivityandSubject = ddply(meanStdSensorData, c("Subject","Activity"), numcolwise(mean))
 write.table(averageByActivityandSubject, file = "averageByActivityandSubject.txt")
-
+ 
 
