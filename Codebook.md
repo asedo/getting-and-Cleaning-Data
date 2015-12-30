@@ -21,6 +21,7 @@ which have been processed using various signal processing techniques to measurem
 of 561 features. For a more detailed description, please see the readme.txt file that comes with the data. 
 
 The data can be downloaded at: 
+
  (https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
 
 
@@ -28,6 +29,7 @@ The data can be downloaded at:
 ## Conventions followed
 I tried to follow the tidy data set convention in Hadley Wickham's paper. 
 Can be found here. 
+
 (https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html)
 
 ## Data sets
